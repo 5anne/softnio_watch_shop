@@ -25,6 +25,7 @@ function App() {
     if (purpleItemNumber > 0 || cyanItemNumber > 0 || blueItemNumber > 0 || blackItemNumber > 0) {
       setActive(true);
     }
+
   }
 
   const handleAddItem = () => {
@@ -87,6 +88,45 @@ function App() {
     blue: '/src/assets/blue.jpg',
     black: '/src/assets/black.jpg',
   }
+
+  const addedItems = [
+    {
+      id: 1,
+      image: "/src/assets/purple.jpg",
+      productName: "Classy Modern Smart Watch",
+      color: "Purple",
+      size: "S",
+      qnt: purpleItemNumber,
+      price: purpleItemNumber * 69,
+    },
+    {
+      id: 2,
+      image: "/src/assets/cyan.jpg",
+      productName: "Classy Modern Smart Watch",
+      color: "Cyan",
+      size: "S",
+      qnt: cyanItemNumber,
+      price: cyanItemNumber * 69,
+    },
+    {
+      id: 3,
+      image: "/src/assets/blue.jpg",
+      productName: "Classy Modern Smart Watch",
+      color: "Blue",
+      size: "S",
+      qnt: blueItemNumber,
+      price: blueItemNumber * 69,
+    },
+    {
+      id: 4,
+      image: "/src/assets/black.jpg",
+      productName: "Classy Modern Smart Watch",
+      color: "Black",
+      size: "S",
+      qnt: blackItemNumber,
+      price: blackItemNumber * 69,
+    }
+  ]
 
   return (
     <>
@@ -174,11 +214,11 @@ function App() {
         active &&
         <div className='flex justify-center animate-bounce mb-20'>
           <button className='bg-[#FFBB5A] text-[#364A63] font-bold rounded-3xl py-3 px-6' onClick={() => document.getElementById('my_modal_5').showModal()}>Checkout <button className='bg-white text-black px-2 rounded-lg'>{itemNumber}</button></button>
-          <CheckOut></CheckOut>
+          <CheckOut addedItems={addedItems}></CheckOut>
         </div>
       }
     </>
   )
 }
 
-export default App
+export default App;

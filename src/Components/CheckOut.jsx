@@ -1,6 +1,7 @@
 import React from 'react';
 
-const CheckOut = () => {
+const CheckOut = ({ addedItems }) => {
+    console.log(addedItems);
     return (
         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
             <div className="modal-box">
@@ -19,26 +20,32 @@ const CheckOut = () => {
                         </thead>
                         <tbody>
                             {/* row */}
-                            <tr className='text-black'>
-                                <td>
-                                    <div className="flex items-center gap-3">
-                                        <div className="avatar">
-                                            <div className="mask mask-squircle rounded-none h-10 w-10">
-                                                <img
-                                                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                                                    alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="text-sm text-black font-semibold opacity-50">United States</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            {
+                                addedItems?.map((item, index) => {
+                                    item?.qnt > 0 &&
+                                        < tr key={index} className='text-black' >
+                                            <td>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle rounded-none h-10 w-10">
+                                                            <img
+                                                                src={item.image}
+                                                                alt={item.productName} />
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div className="text-sm text-black font-semibold opacity-50">{item.productName}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{item.color}</td>
+                                            <td>{item.size}</td>
+                                            <td>{item.qnt}</td>
+                                            <td>${item.price}</td>
+                                        </tr>
+
+                                })
+                            }
                         </tbody>
                         {/* foot */}
                         <tfoot>
@@ -59,7 +66,7 @@ const CheckOut = () => {
                     </form>
                 </div>
             </div>
-        </dialog>
+        </dialog >
     );
 };
 
