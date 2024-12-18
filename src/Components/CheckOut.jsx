@@ -48,26 +48,29 @@ const CheckOut = ({ addedItems }) => {
                                 cartProduct?.map((item) => (
                                     item.sizenQnt?.map((itemInfo, index) => (
                                         < tr key={index} className='text-black' >
-                                            <td>
-                                                <div className="flex items-center gap-3">
-                                                    <div className="avatar">
-                                                        <div className="mask mask-squircle rounded-none h-10 w-10">
-                                                            <img
-                                                                src={item.image}
-                                                                alt={item.productName} />
+                                            {itemInfo.qnt > 0 &&
+                                                <>
+                                                    <td>
+                                                        <div className="flex items-center gap-3">
+                                                            <div className="avatar">
+                                                                <div className="mask mask-squircle rounded-none h-10 w-10">
+                                                                    <img
+                                                                        src={item.image}
+                                                                        alt={item.productName} />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <div className="text-sm text-black font-semibold opacity-50">{item.productName}</div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div>
-                                                        <div className="text-sm text-black font-semibold opacity-50">{item.productName}</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>{item.color}</td>
-                                            <td>{itemInfo.size}</td>
-                                            <td>{itemInfo.qnt}</td>
-                                            <td>${itemInfo.price}</td>
-                                        </tr>
-                                    ))
+                                                    </td>
+                                                    <td>{item.color}</td>
+                                                    <td>{itemInfo.size}</td>
+                                                    <td>{itemInfo.qnt}</td>
+                                                    <td>${itemInfo.price}</td>
+                                                </>
+                                            }
+                                        </tr>))
                                 ))
                             }
                         </tbody>

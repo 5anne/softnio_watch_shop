@@ -25,6 +25,7 @@ function App() {
   const [blackXLItemNumber, setBlackXLItemNumber] = useState(0);
   const [itemNumber, setItemNumber] = useState(0);
   const [active, setActive] = useState(false);
+  const [state, setState] = useState(0);
 
   const handleColorChange = color => {
     setSelectedColor(color);
@@ -246,7 +247,6 @@ function App() {
     }
   }
 
-
   const bandColors = {
     purple: '/src/assets/purple.jpg',
     cyan: '/src/assets/cyan.jpg',
@@ -331,7 +331,17 @@ function App() {
             <StarRatings rating={3.5} starRatedColor='#FFD200' starDimension='24px' starSpacing='4px' />
             <p className='text-[#8091A7]'>(2 Reviews)</p>
           </div>
-          <p className='my-4'><strike className="text-xl text-[#8091A7]">$99.00</strike> <span className='text-2xl text-[#816BFF] font-bold'>$79.00</span></p>
+
+          <p className='my-4'><strike className="text-xl text-[#8091A7]">$99.00</strike> <span
+            className={state === 0 ? selectedColor === 'purple' ?
+              'text-2xl text-[#816BFF] font-bold' : selectedColor === 'cyan' ?
+                'text-2xl text-[#1FCEC9] font-bold' : selectedColor === 'blue' ?
+                  'text-2xl text-[#4B97D3] font-bold' : selectedColor === 'black' ?
+                    'text-2xl text-[#3B4747] font-bold' : 'text-2xl text-[#816BFF] font-bold' :
+              'text-2xl text-[#816BFF] font-bold'}>
+            {state === 0 ? selectedSize === 'S' ? '$69.00' : selectedSize === 'M' ? '$79.00' : selectedSize === 'L' ? '$89.00' : selectedSize === 'XL' ? '$99.00' : '$69.00' : '$69.00'}
+          </span></p>
+
           <p className='text-[#8091A7] text-lg'>I must explain to you how all this mistaken idea of denouncing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.</p>
 
           <div className='flex gap-8 my-4'>
