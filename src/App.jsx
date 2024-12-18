@@ -6,10 +6,23 @@ import './App.css'
 
 function App() {
   const [selectedColor, setSelectedColor] = useState('purple');
-  const [purpleItemNumber, setPurpleItemNumber] = useState(0);
-  const [cyanItemNumber, setCyanItemNumber] = useState(0);
-  const [blueItemNumber, setBlueItemNumber] = useState(0);
-  const [blackItemNumber, setBlackItemNumber] = useState(0);
+  const [selectedSize, setSelectedSize] = useState('S');
+  const [purpleSItemNumber, setPurpleSItemNumber] = useState(0);
+  const [purpleMItemNumber, setPurpleMItemNumber] = useState(0);
+  const [purpleLItemNumber, setPurpleLItemNumber] = useState(0);
+  const [purpleXLItemNumber, setPurpleXLItemNumber] = useState(0);
+  const [cyanSItemNumber, setCyanSItemNumber] = useState(0);
+  const [cyanMItemNumber, setCyanMItemNumber] = useState(0);
+  const [cyanLItemNumber, setCyanLItemNumber] = useState(0);
+  const [cyanXLItemNumber, setCyanXLItemNumber] = useState(0);
+  const [blueSItemNumber, setBlueSItemNumber] = useState(0);
+  const [blueMItemNumber, setBlueMItemNumber] = useState(0);
+  const [blueLItemNumber, setBlueLItemNumber] = useState(0);
+  const [blueXLItemNumber, setBlueXLItemNumber] = useState(0);
+  const [blackSItemNumber, setBlackSItemNumber] = useState(0);
+  const [blackMItemNumber, setBlackMItemNumber] = useState(0);
+  const [blackLItemNumber, setBlackLItemNumber] = useState(0);
+  const [blackXLItemNumber, setBlackXLItemNumber] = useState(0);
   const [itemNumber, setItemNumber] = useState(0);
   const [active, setActive] = useState(false);
 
@@ -17,67 +30,219 @@ function App() {
     setSelectedColor(color);
   }
 
+  const handleWatchSize = size => {
+    setSelectedSize(size);
+  }
+
   const handleAddToCart = () => {
-    if (purpleItemNumber === 0 && cyanItemNumber === 0 && blueItemNumber === 0 && blackItemNumber === 0) {
+    if (itemNumber === 0) {
       alert('Please, Add Item at first!')
       setActive(false);
     }
-    if (purpleItemNumber > 0 || cyanItemNumber > 0 || blueItemNumber > 0 || blackItemNumber > 0) {
+    if (itemNumber > 0) {
       setActive(true);
     }
-
   }
 
   const handleAddItem = () => {
     if (selectedColor === 'purple') {
-      setPurpleItemNumber(purpleItemNumber + 1);
-      setItemNumber(itemNumber + 1);
+      if (selectedSize === 'S') {
+        setPurpleSItemNumber(purpleSItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'M') {
+        setPurpleMItemNumber(purpleMItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'L') {
+        setPurpleLItemNumber(purpleLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'XL') {
+        setPurpleXLItemNumber(purpleXLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
     }
     if (selectedColor === 'cyan') {
-      setCyanItemNumber(cyanItemNumber + 1);
-      setItemNumber(itemNumber + 1);
+      if (selectedSize === 'S') {
+        setCyanSItemNumber(cyanSItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'M') {
+        setCyanMItemNumber(cyanMItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'L') {
+        setCyanLItemNumber(cyanLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'XL') {
+        setCyanXLItemNumber(cyanXLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
     }
     if (selectedColor === 'blue') {
-      setBlueItemNumber(blueItemNumber + 1);
-      setItemNumber(itemNumber + 1);
+      if (selectedSize === 'S') {
+        setBlueSItemNumber(blueSItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'M') {
+        setBlueMItemNumber(blueMItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'L') {
+        setBlueLItemNumber(blueLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'XL') {
+        setBlueXLItemNumber(blueXLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
     }
     if (selectedColor === 'black') {
-      setBlackItemNumber(blackItemNumber + 1);
-      setItemNumber(itemNumber + 1);
+      if (selectedSize === 'S') {
+        setBlackSItemNumber(blackSItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'M') {
+        setBlackMItemNumber(blackMItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'L') {
+        setBlackLItemNumber(blackLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
+      else if (selectedSize === 'XL') {
+        setBlackXLItemNumber(blackXLItemNumber + 1);
+        setItemNumber(itemNumber + 1);
+      }
     }
   }
 
   const handleDeleteItem = () => {
     if (selectedColor === 'purple') {
-      const reducedItem = purpleItemNumber - 1;
-      if (reducedItem >= 0) {
-        setPurpleItemNumber(reducedItem);
-        setItemNumber(itemNumber - 1);
+      if (selectedSize === 'S') {
+        const reducedItem = purpleSItemNumber - 1;
+        if (reducedItem >= 0) {
+          setPurpleSItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'M') {
+        const reducedItem = purpleMItemNumber - 1;
+        if (reducedItem >= 0) {
+          setPurpleMItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'L') {
+        const reducedItem = purpleLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setPurpleLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'XL') {
+        const reducedItem = purpleXLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setPurpleXLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
       }
     }
     if (selectedColor === 'cyan') {
-      const reducedItem = cyanItemNumber - 1;
-      if (reducedItem >= 0) {
-        setCyanItemNumber(reducedItem);
-        setItemNumber(itemNumber - 1);
+      if (selectedSize === 'S') {
+        const reducedItem = cyanSItemNumber - 1;
+        if (reducedItem >= 0) {
+          setCyanSItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'M') {
+        const reducedItem = cyanMItemNumber - 1;
+        if (reducedItem >= 0) {
+          setCyanMItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'L') {
+        const reducedItem = cyanLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setCyanLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'XL') {
+        const reducedItem = cyanXLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setCyanXLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
       }
     }
     if (selectedColor === 'blue') {
-      const reducedItem = blueItemNumber - 1;
-      if (reducedItem >= 0) {
-        setBlueItemNumber(reducedItem);
-        setItemNumber(itemNumber - 1);
+      if (selectedSize === 'S') {
+        const reducedItem = blueSItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlueSItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'M') {
+        const reducedItem = blueMItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlueMItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'L') {
+        const reducedItem = blueLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlueLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'XL') {
+        const reducedItem = blueXLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlueXLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
       }
     }
     if (selectedColor === 'black') {
-      const reducedItem = blackItemNumber - 1;
-      if (reducedItem >= 0) {
-        setBlackItemNumber(reducedItem);
-        setItemNumber(itemNumber - 1);
+      if (selectedSize === 'S') {
+        const reducedItem = blackSItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlackSItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'M') {
+        const reducedItem = blackMItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlackMItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'L') {
+        const reducedItem = blackLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlackLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
+      }
+      else if (selectedSize === 'XL') {
+        const reducedItem = blackXLItemNumber - 1;
+        if (reducedItem >= 0) {
+          setBlackXLItemNumber(reducedItem);
+          setItemNumber(itemNumber - 1);
+        }
       }
     }
-    if (purpleItemNumber === 0 && cyanItemNumber === 0 && blueItemNumber === 0 && blackItemNumber === 0) {
+    if (itemNumber === 1) {
       setActive(false);
+      console.log(itemNumber);
     }
   }
 
@@ -95,36 +260,56 @@ function App() {
       image: "/src/assets/purple.jpg",
       productName: "Classy Modern Smart Watch",
       color: "Purple",
-      size: "S",
-      qnt: purpleItemNumber,
-      price: purpleItemNumber * 69,
+      sizenQnt: [
+        { size: 'S', qnt: purpleSItemNumber, price: purpleSItemNumber * 69 },
+        { size: 'M', qnt: purpleMItemNumber, price: purpleMItemNumber * 79 },
+        { size: 'L', qnt: purpleLItemNumber, price: purpleLItemNumber * 89 },
+        { size: 'XL', qnt: purpleXLItemNumber, price: purpleXLItemNumber * 99 },
+      ],
+      quantity: purpleSItemNumber + purpleMItemNumber + purpleLItemNumber + purpleXLItemNumber,
+      price: (purpleSItemNumber * 69) + (purpleMItemNumber * 79) + (purpleLItemNumber * 89) + (purpleXLItemNumber * 99),
     },
     {
       id: 2,
       image: "/src/assets/cyan.jpg",
       productName: "Classy Modern Smart Watch",
       color: "Cyan",
-      size: "S",
-      qnt: cyanItemNumber,
-      price: cyanItemNumber * 69,
+      sizenQnt: [
+        { size: 'S', qnt: cyanSItemNumber, price: cyanSItemNumber * 69 },
+        { size: 'M', qnt: cyanMItemNumber, price: cyanMItemNumber * 79 },
+        { size: 'L', qnt: cyanLItemNumber, price: cyanLItemNumber * 89 },
+        { size: 'XL', qnt: cyanXLItemNumber, price: cyanXLItemNumber * 99 },
+      ],
+      quantity: cyanSItemNumber + cyanMItemNumber + cyanLItemNumber + cyanXLItemNumber,
+      price: (cyanSItemNumber * 69) + (cyanMItemNumber * 79) + (cyanLItemNumber * 89) + (cyanXLItemNumber * 99),
     },
     {
       id: 3,
       image: "/src/assets/blue.jpg",
       productName: "Classy Modern Smart Watch",
       color: "Blue",
-      size: "S",
-      qnt: blueItemNumber,
-      price: blueItemNumber * 69,
+      sizenQnt: [
+        { size: 'S', qnt: blueSItemNumber, price: blueSItemNumber * 69 },
+        { size: 'M', qnt: blueMItemNumber, price: blueMItemNumber * 79 },
+        { size: 'L', qnt: blueLItemNumber, price: blueLItemNumber * 89 },
+        { size: 'XL', qnt: blueXLItemNumber, price: blueXLItemNumber * 99 },
+      ],
+      quantity: blueSItemNumber + blueMItemNumber + blueLItemNumber + blueXLItemNumber,
+      price: (blueSItemNumber * 69) + (blueMItemNumber * 79) + (blueLItemNumber * 89) + (blueXLItemNumber * 99),
     },
     {
       id: 4,
       image: "/src/assets/black.jpg",
       productName: "Classy Modern Smart Watch",
       color: "Black",
-      size: "S",
-      qnt: blackItemNumber,
-      price: blackItemNumber * 69,
+      sizenQnt: [
+        { size: 'S', qnt: blackSItemNumber, price: blackSItemNumber * 69 },
+        { size: 'M', qnt: blackMItemNumber, price: blackMItemNumber * 79 },
+        { size: 'L', qnt: blackLItemNumber, price: blackLItemNumber * 89 },
+        { size: 'XL', qnt: blackXLItemNumber, price: blackXLItemNumber * 99 },
+      ],
+      quantity: blackSItemNumber + blackMItemNumber + blackLItemNumber + blackXLItemNumber,
+      price: (blackSItemNumber * 69) + (blackMItemNumber * 79) + (blackLItemNumber * 89) + (blackXLItemNumber * 99),
     }
   ]
 
@@ -147,7 +332,7 @@ function App() {
             <p className='text-[#8091A7]'>(2 Reviews)</p>
           </div>
           <p className='my-4'><strike className="text-xl text-[#8091A7]">$99.00</strike> <span className='text-2xl text-[#816BFF] font-bold'>$79.00</span></p>
-          <p className='text-[#8091A7] text-lg'>I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.</p>
+          <p className='text-[#8091A7] text-lg'>I must explain to you how all this mistaken idea of denouncing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.</p>
 
           <div className='flex gap-8 my-4'>
             <div>
@@ -177,10 +362,13 @@ function App() {
 
           <h2 className='text-[#364A63] font-bold text-lg'>Wrist Size</h2>
           <div className='flex gap-4 my-4'>
-            <button className='border-2 rounded-md text-[#8091A7] px-4 py-2 hover:border-[#816BFF]'><span className='font-bold text-black hover:text-[#816BFF]'>S</span> $69</button>
-            <button className='border-2 rounded-md text-[#8091A7] px-4 py-2 hover:border-[#1FCEC9]'><span className='font-bold text-black hover:text-[#1FCEC9]'>M</span> $79</button>
-            <button className='border-2 rounded-md text-[#8091A7] px-4 py-2 hover:border-[#4B97D3]'><span className='font-bold text-black hover:text-[#4B97D3]'>L</span> $89</button>
-            <button className='border-2 rounded-md text-[#8091A7] px-4 py-2 hover:border-[#3B4747]'><span className='font-bold text-black hover:text-[#3B4747]'>XL</span> $99</button>
+            <button onClick={() => handleWatchSize('S')} className={selectedSize === 'S' ? 'border-2 rounded-md px-4 py-2 border-[#816BFF]' : 'border-2 rounded-md px-4 py-2 hover:border-[#816BFF]'}><span className={selectedSize === 'S' ? 'font-bold text-[#816BFF]' : 'font-bold text-black hover:text-[#816BFF]'}>S</span> $69</button>
+
+            <button onClick={() => handleWatchSize('M')} className={selectedSize === 'M' ? 'border-2 rounded-md px-4 py-2 border-[#1FCEC9]' : 'border-2 rounded-md px-4 py-2 hover:border-[#1FCEC9]'}><span className={selectedSize === 'M' ? 'font-bold text-[#1FCEC9]' : 'font-bold text-black hover:text-[#1FCEC9]'}>M</span> $79</button>
+
+            <button onClick={() => handleWatchSize('L')} className={selectedSize === 'L' ? 'border-2 rounded-md px-4 py-2 border-[#4B97D3]' : 'border-2 rounded-md px-4 py-2 hover:border-[#4B97D3]'}><span className={selectedSize === 'L' ? 'font-bold text-[#4B97D3]' : 'font-bold text-black hover:text-[#4B97D3]'}>L</span> $89</button>
+
+            <button onClick={() => handleWatchSize('XL')} className={selectedSize === 'XL' ? 'border-2 rounded-md px-4 py-2 border-[#3B4747]' : 'border-2 rounded-md px-4 py-2 hover:border-[#3B4747]'}><span className={selectedSize === 'XL' ? 'font-bold text-[#3B4747]' : 'font-bold text-black hover:text-[#3B4747]'}>XL</span> $99</button>
           </div>
 
           {/* Add To Cart */}
@@ -189,16 +377,52 @@ function App() {
             <div>
               <button onClick={handleDeleteItem} className='border-2 rounded-l-md px-4 py-2'>-</button>
               {
-                selectedColor === 'purple' && <button className='border-y-2 px-6 py-2'>{purpleItemNumber}</button>
+                selectedColor === 'purple' ?
+                  selectedSize === 'S' ?
+                    <button className='border-y-2 px-6 py-2'>{purpleSItemNumber}</button> :
+                    selectedSize === 'M' ?
+                      <button className='border-y-2 px-6 py-2'>{purpleMItemNumber}</button> :
+                      selectedSize === 'L' ?
+                        <button className='border-y-2 px-6 py-2'>{purpleLItemNumber}</button> :
+                        selectedSize === 'XL' ?
+                          <button className='border-y-2 px-6 py-2'>{purpleXLItemNumber}</button> :
+                          <></> : <></>
               }
               {
-                selectedColor === 'cyan' && <button className='border-y-2 px-6 py-2'>{cyanItemNumber}</button>
+                selectedColor === 'cyan' ?
+                  selectedSize === 'S' ?
+                    <button className='border-y-2 px-6 py-2'>{cyanSItemNumber}</button> :
+                    selectedSize === 'M' ?
+                      <button className='border-y-2 px-6 py-2'>{cyanMItemNumber}</button> :
+                      selectedSize === 'L' ?
+                        <button className='border-y-2 px-6 py-2'>{cyanLItemNumber}</button> :
+                        selectedSize === 'XL' ?
+                          <button className='border-y-2 px-6 py-2'>{cyanXLItemNumber}</button> :
+                          <></> : <></>
               }
               {
-                selectedColor === 'blue' && <button className='border-y-2 px-6 py-2'>{blueItemNumber}</button>
+                selectedColor === 'blue' ?
+                  selectedSize === 'S' ?
+                    <button className='border-y-2 px-6 py-2'>{blueSItemNumber}</button> :
+                    selectedSize === 'M' ?
+                      <button className='border-y-2 px-6 py-2'>{blueMItemNumber}</button> :
+                      selectedSize === 'L' ?
+                        <button className='border-y-2 px-6 py-2'>{blueLItemNumber}</button> :
+                        selectedSize === 'XL' ?
+                          <button className='border-y-2 px-6 py-2'>{blueXLItemNumber}</button> :
+                          <></> : <></>
               }
               {
-                selectedColor === 'black' && <button className='border-y-2 px-6 py-2'>{blackItemNumber}</button>
+                selectedColor === 'black' ?
+                  selectedSize === 'S' ?
+                    <button className='border-y-2 px-6 py-2'>{blackSItemNumber}</button> :
+                    selectedSize === 'M' ?
+                      <button className='border-y-2 px-6 py-2'>{blackMItemNumber}</button> :
+                      selectedSize === 'L' ?
+                        <button className='border-y-2 px-6 py-2'>{blackLItemNumber}</button> :
+                        selectedSize === 'XL' ?
+                          <button className='border-y-2 px-6 py-2'>{blackXLItemNumber}</button> :
+                          <></> : <></>
               }
               <button onClick={handleAddItem} className='border-2 rounded-r-md px-4 py-2'>+</button>
             </div>

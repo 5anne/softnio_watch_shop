@@ -1,7 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CheckOut = ({ addedItems }) => {
-    console.log(addedItems);
+    const [cartProduct, setCartProduct] = useState([]);
+    const [totalProduct, setTotalProduct] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect(() => {
+        const filteredProduct = addedItems?.filter(item => item.price !== 0)
+        setCartProduct(filteredProduct);
+
+        const sum = filteredProduct.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue.quantity;
+        }, 0);
+        setTotalProduct(sum);
+
+        const sumOfPrice = filteredProduct.reduce((accumulator, currentValue) => {
+            return accumulator + currentValue.price;
+        }, 0);
+        setTotalPrice(sumOfPrice);
+
+    }, [])
+
+    const handleCheckOut = () => {
+        alert('Your order has been checked out successfully!');
+        window.location.reload();
+    }
+
     return (
         <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
             <div className="modal-box">
@@ -21,8 +45,8 @@ const CheckOut = ({ addedItems }) => {
                         <tbody>
                             {/* row */}
                             {
-                                addedItems?.map((item, index) => {
-                                    item?.qnt > 0 &&
+                                cartProduct?.map((item) => (
+                                    item.sizenQnt?.map((itemInfo, index) => (
                                         < tr key={index} className='text-black' >
                                             <td>
                                                 <div className="flex items-center gap-3">
@@ -39,22 +63,22 @@ const CheckOut = ({ addedItems }) => {
                                                 </div>
                                             </td>
                                             <td>{item.color}</td>
-                                            <td>{item.size}</td>
-                                            <td>{item.qnt}</td>
-                                            <td>${item.price}</td>
+                                            <td>{itemInfo.size}</td>
+                                            <td>{itemInfo.qnt}</td>
+                                            <td>${itemInfo.price}</td>
                                         </tr>
-
-                                })
+                                    ))
+                                ))
                             }
                         </tbody>
                         {/* foot */}
                         <tfoot>
-                            <tr className='text-black font-bold'>
+                            <tr className='text-black font-bold text-base'>
                                 <th>Total</th>
                                 <th></th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
+                                <th>{totalProduct}</th>
+                                <th>${totalPrice}</th>
                             </tr>
                         </tfoot>
                     </table>
@@ -62,7 +86,7 @@ const CheckOut = ({ addedItems }) => {
                 <div className="modal-action">
                     <form method="dialog">
                         <button className="btn btn-outline mr-4">Continue Shopping</button>
-                        <button className="btn bg-[#6576FF] text-white">Checkout</button>
+                        <button onClick={handleCheckOut} className="btn bg-[#6576FF] text-white">Checkout</button>
                     </form>
                 </div>
             </div>
