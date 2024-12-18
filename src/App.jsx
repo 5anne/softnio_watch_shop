@@ -243,7 +243,6 @@ function App() {
     }
     if (itemNumber === 1) {
       setActive(false);
-      console.log(itemNumber);
     }
   }
 
@@ -315,17 +314,29 @@ function App() {
 
   return (
     <>
-      <div className='flex justify-center items-center gap-12 p-28'>
+      <div className='lg:flex justify-center items-center gap-12 p-8 md:p-28'>
 
         {/* Image */}
 
-        <div className='w-1/2'>
+        <div className='lg:w-1/2'>
           <img className='rounded' src={bandColors[selectedColor]} alt="" />
+        </div>
+
+        {/* Band Color */}
+
+        <div className='flex justify-center items-center gap-4 mt-4 lg:hidden'>
+          <button onClick={() => handleColorChange('purple')} className={selectedColor === 'purple' && 'border-[3px] border-[#816BFF] rounded-full p-[2px]'}><p className='bg-[#816BFF] p-2 rounded-full'></p></button>
+
+          <button onClick={() => handleColorChange('cyan')} className={selectedColor === 'cyan' && 'border-[3px] border-[#1FCEC9] rounded-full p-[2px]'}><p className='bg-[#1FCEC9] p-2 rounded-full'></p></button>
+
+          <button onClick={() => handleColorChange('blue')} className={selectedColor === 'blue' && 'border-[3px] border-[#4B97D3] rounded-full p-[2px]'}><p className='bg-[#4B97D3] p-2 rounded-full'></p></button>
+
+          <button onClick={() => handleColorChange('black')} className={selectedColor === 'black' && 'border-[3px] border-[#3B4747] rounded-full p-[2px]'}><p className='bg-[#3B4747] p-2 rounded-full'></p></button>
         </div>
 
         {/* Description */}
 
-        <div className='w-1/2'>
+        <div className='lg:w-1/2 mt-10 lg:mt-0'>
           <h1 className='text-4xl font-bold text-[#364A63]'>Classy Modern Smart Watch</h1>
           <div className='flex items-center gap-2 mt-4'>
             <StarRatings rating={3.5} starRatedColor='#FFD200' starDimension='24px' starSpacing='4px' />
@@ -371,7 +382,7 @@ function App() {
           {/* Wrist Size */}
 
           <h2 className='text-[#364A63] font-bold text-lg'>Wrist Size</h2>
-          <div className='flex gap-4 my-4'>
+          <div className='flex gap-2 md:gap-4 my-4'>
             <button onClick={() => handleWatchSize('S')} className={selectedSize === 'S' ? 'border-2 rounded-md px-4 py-2 border-[#816BFF]' : 'border-2 rounded-md px-4 py-2 hover:border-[#816BFF]'}><span className={selectedSize === 'S' ? 'font-bold text-[#816BFF]' : 'font-bold text-black hover:text-[#816BFF]'}>S</span> $69</button>
 
             <button onClick={() => handleWatchSize('M')} className={selectedSize === 'M' ? 'border-2 rounded-md px-4 py-2 border-[#1FCEC9]' : 'border-2 rounded-md px-4 py-2 hover:border-[#1FCEC9]'}><span className={selectedSize === 'M' ? 'font-bold text-[#1FCEC9]' : 'font-bold text-black hover:text-[#1FCEC9]'}>M</span> $79</button>
@@ -383,7 +394,7 @@ function App() {
 
           {/* Add To Cart */}
 
-          <div className='flex items-center gap-4'>
+          <div className='md:flex items-center gap-4'>
             <div>
               <button onClick={handleDeleteItem} className='border-2 rounded-l-md px-4 py-2'>-</button>
               {
@@ -436,7 +447,7 @@ function App() {
               }
               <button onClick={handleAddItem} className='border-2 rounded-r-md px-4 py-2'>+</button>
             </div>
-            <button onClick={handleAddToCart} className='bg-[#6576FF] rounded-md text-white font-semibold px-4 py-2'>Add to Cart</button>
+            <button onClick={handleAddToCart} className='bg-[#6576FF] rounded-md text-white font-semibold px-4 py-2 my-4 md:my-0'>Add to Cart</button>
             <span className='text-[#816BFF]'><FaRegHeart /></span>
           </div>
         </div>
