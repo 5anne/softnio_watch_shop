@@ -247,10 +247,10 @@ function App() {
   }
 
   const bandColors = {
-    purple: '/src/assets/purple.jpg',
-    cyan: '/src/assets/cyan.jpg',
-    blue: '/src/assets/blue.jpg',
-    black: '/src/assets/black.jpg',
+    purple: 'https://i.ibb.co.com/c8QZFMm/purple.jpg',
+    cyan: 'https://i.ibb.co.com/HKkfPSP/cyan.jpg',
+    blue: 'https://i.ibb.co.com/6yrwLrp/blue.jpg',
+    black: 'https://i.ibb.co.com/FD1SFKh/black.jpg',
   }
 
   const addedItems = [
@@ -314,7 +314,7 @@ function App() {
 
   return (
     <>
-      <div className='lg:flex justify-center items-center gap-12 p-8 md:p-28'>
+      <div className='lg:flex justify-center items-center gap-12 p-8 md:p-28 roboto'>
 
         {/* Image */}
 
@@ -457,7 +457,7 @@ function App() {
 
       {
         active &&
-        <div className='flex justify-center animate-bounce mb-20'>
+        <div className='flex justify-center animate-bounce mb-20 roboto'>
           <button className='bg-[#FFBB5A] text-[#364A63] font-bold rounded-3xl py-3 px-6' onClick={() => document.getElementById('my_modal_5').showModal()}>Checkout <button className='bg-white text-black px-2 rounded-lg'>{itemNumber}</button></button>
           <CheckOut addedItems={addedItems}></CheckOut>
         </div>

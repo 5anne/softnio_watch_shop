@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "../App.css"
 
 const CheckOut = ({ addedItems }) => {
     const [cartProduct, setCartProduct] = useState([]);
@@ -27,7 +28,7 @@ const CheckOut = ({ addedItems }) => {
     }
 
     return (
-        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle roboto">
             <div className="modal-box">
                 <h3 className="font-bold text-lg">Your Cart</h3>
                 <div className="overflow-x-auto">
